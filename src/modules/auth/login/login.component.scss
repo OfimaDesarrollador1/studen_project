@@ -7,13 +7,15 @@
     flex: 1;
     background-color: #d5eaf4;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    flex-direction: column; /* Alinea en columna */
+
   }
   
   .logo {
-    font-size: 3rem;
+    font-size: 5em;
     font-weight: bold;
   }
   
@@ -48,4 +50,16 @@
   
   .forgot-password:hover {
     text-decoration: underline;
+  }
+
+  .custom-btn {
+    background-color: #004B5A; /* Color oscuro */
+    border-radius: 8px; /* Bordes redondeados */
+    font-weight: bold; /* Texto en negrita */
+    padding: 12px; /* Espaciado interno */
+    border: none; /* Quita el borde */
+  }
+
+  .custom-btn:hover {
+    background-color: #003744; /* Color más oscuro al pasar el mouse */
   }
