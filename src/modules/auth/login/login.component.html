@@ -1,0 +1,33 @@
+<!-- <p>login works!</p>
+<button class="btn btn-danger" routerLink="/admin">Admin</button> -->
+
+<div class="login-container">
+  <div class="login-left d-none d-sm-block">
+    <h1 class="logo">Custo<span class="lock-icon">🔒</span>Docs</h1>
+    <p class="subtitle">seguridad en cada byte</p>
+  </div>
+
+  <div class="login-right">
+    <h2>¡Bienvenido!</h2>
+    <p>Una forma diferente de administrar tus archivos</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Correo electrónico</mat-label>
+        <input matInput formControlName="email" type="email" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" required>
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width" type="submit">Iniciar sesión</button>
+
+      <a href="#" class="forgot-password">¿Has olvidado tu contraseña?</a>
+    </form>
+  </div>
+</div>
