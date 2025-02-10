@@ -10,6 +10,11 @@ export const routes: Routes = [
     {
         path: 'admin',
         component: AdminComponent
+    },
+    {
+        path: '**',
+        redirectTo: 'login',
+        pathMatch: 'full'
     }
 
 ];
