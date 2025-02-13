@@ -28,7 +28,7 @@
     color: #555;
   }
   
-  .login-right {
+  .outght {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -52,6 +52,7 @@
     text-decoration: underline;
   }
 
+
   .custom-btn {
     background-color: #004B5A; /* Color oscuro */
     border-radius: 8px; /* Bordes redondeados */
@@ -61,5 +62,16 @@
   }
 
   .custom-btn:hover {
-    background-color: #003744; /* Color más oscuro al pasar el mouse */
+    background-color: #003744;
+    
+  }
+
+
+  .login-right {
+    flex: 1;
+    // max-width: 50%;
+    // padding: 40px;
+    // display: flex;
+    flex-direction: column;
+    align-items: center;
   }

@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../auth/login/Service/auth.service';
+import { HLoaderComponent } from '../../../components/h-loader/h-loader.component';
+
 
 @Component({
   selector: 'app-login',
@@ -13,14 +16,24 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     MatFormFieldModule,  
     MatInputModule,      
-    MatIconModule       
+    MatIconModule,
+    HLoaderComponent
+    
+  
+           
   ],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  providers: [
+    
+  ]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   hidePassword = true;
+  labelBtn = "Iniciar sesion";
+  private authService = inject(AuthService);
+  show: boolean = false;
 
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
@@ -29,9 +42,24 @@ export class LoginComponent {
     });
   }
 
+  ngOnInit(): void {
+    setTimeout(() => {
+  this.show = true;
+}, 5000);
+  }
+
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log('Datos de inicio de sesión:', this.loginForm.value);
+      this.authService.login(this.loginForm.value).subscribe({
+        next: (res) => {
+          console.log('Login exitoso:', res);
+          window.location.href='/admin';
+        },
+        error: (err) => {
+          console.error('Error en login:', err);
+          alert('Error en las credenciales' );
+        }
+      });
     }
   }
 }

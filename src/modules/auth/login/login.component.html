@@ -1,14 +1,17 @@
 <!-- <p>login works!</p>
 <button class="btn btn-danger" routerLink="/admin">Admin</button> -->
 
-<div class="login-container">
+
+<app-h-loader *ngIf="!show"></app-h-loader>
+
+<div class="login-container animate__animated animate__fadeIn animate__slow" *ngIf="show">
   <div class="login-left d-none d-md-flex justify-content-center align-items-center vh-100">
     <h1 class="logo ">Student<span class="lock-icon">🔒</span>Docs</h1>
     <p class="subtitle">Seguridad en cada byte</p>
   </div>
   
 
-  <div class="login-right">
+  <div class="login-right justify-content-center col-6 p-4 d-flex">
     <h2>¡Bienvenido!</h2>
     <p>Una forma diferente de administrar tus archivos</p>
 
@@ -26,10 +29,9 @@
         </button>
       </mat-form-field>
 
-      <!-- <button mat-raised-button color="primary" class="full-width" type="submit">Iniciar sesión</button> -->
       <button class="btn btn-lg btn-primary w-100 custom-btn">Iniciar sesión</button>
 
       <a href="#" class="forgot-password">¿Has olvidado tu contraseña?</a>
     </form>
   </div>
-</div>
+</div> 
